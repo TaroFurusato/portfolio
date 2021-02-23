@@ -1,0 +1,62 @@
+{% extends 'base.html'%}
+
+{% block body %}
+
+<form name="result_form" class="m-5" action="{{url_for('search', sid=3)}}" method="POST">
+    <h1>詳細</h1>
+    <table class="table table-dark table-striped">
+    <tr  class="table-info">
+        <th width="220">実績期間</th>
+        <th width="320">案件</th>
+        <th width="150">カテゴリ</th>
+        <th width="150">OS</th>
+        <th width="150">スキル</th>
+    </tr>
+
+    {% for skil in skils%}
+    <tr>
+        <td>
+            {{ skil.s_date.strftime('%Y年%m月') }}→
+            {% if skil.e_date == None %}
+            着手中
+            {% else %}
+            {{ skil.e_date.strftime('%Y年%m月') }}
+            {% endif %}
+
+        </td>
+        <td>{{ skil.project }}</td>
+        <td>
+            {% if skil.category == 1 %}
+                DB
+            {% elif skil.category == 2 %}
+                プログラミング/スクリプト言語
+            {% elif skil.category == 3 %}
+                ツール
+            {% elif skil.category == 4 %}
+                フレームワーク
+            {% else %}
+                {{ skil.category }}
+            {% endif %}
+        </td>
+        <td>
+            {% if skil.os == 1 %}
+                Windwos
+            {% elif skil.os == 2 %}
+                Unix
+            {% else %}
+                {{ skil.os }}
+            {% endif %}
+        </td>
+        <td>{{ skil.skil }}</td>
+
+    </tr>
+    {% endfor %}
+
+    </table>
+
+    <input name="category" type="hidden" value="0">
+    <input name="os" type="hidden" value="0">
+    <input name="skil" type="hidden" value="">
+</form>
+
+{% endblock %}

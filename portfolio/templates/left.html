@@ -1,0 +1,13 @@
+{% extends 'base.html'%}
+
+{% block body %}
+<nav class="navbar navbar-light bg-light p-3">
+    <a class="navbar-brand" href="#" onclick="menu('/0')" role="button">経歴紹介</a>
+</nav>
+
+<a class="btn btn-info btn-lg pb-3" href="#" onclick="menu('/logout')" role="button">ログアウト</a><br>
+<a class="btn btn-light btn-lg pb-3" href="#" onclick="menu('/1')" role="button">プロフィール</a><br>
+<a class="btn btn-success btn-lg pb-3" href="#" onclick="menu('/2')" role="button">職歴</a><br>
+<a class="btn btn-warning btn-lg pb-3" href="#" onclick="menu('/3')" role="button">開発実績</a><br>
+
+{% endblock %}

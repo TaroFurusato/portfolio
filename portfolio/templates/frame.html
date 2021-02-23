@@ -1,0 +1,38 @@
+{% extends 'base.html'%}
+
+{%block body %}
+<form name="search_form" class="m-5" action="/logout" method = "POST">
+    <div class="d-table">
+    <div class="d-table-row">
+        <iframe class="d-table-cell p-1 bg-primary text-white" src="{{ url_for('left')}}" width="200"  height="800"  name="left" ></iframe>
+        <div class="d-table-cell">
+            <div class="d-table">
+                <div class="d-table-row">
+                    {% if sid == 0 %}
+                    <iframe class="d-table-cell  p-1 bg-primary text-white" src="{{ url_for('welcome')}}" name="welcome" width="1200" height="800" ></iframe>
+                    {% endif %}
+                    {% if sid == 1 %}
+                    <iframe class="d-table-cell  p-1 bg-primary text-white" src="{{ url_for('head', sid=1)}}"  width="1200" height="80" ></iframe>
+                    <iframe class="d-table-cell  p-1 bg-primary text-white" src="{{ url_for('body', sid=1)}}" width="1200" height="720"></iframe>
+                    {% endif %}
+                    {% if sid == 2 %}
+                    <iframe class="d-table-cell  p-1 bg-primary text-white" src="{{ url_for('head', sid=2)}}"  width="1200" height="80" ></iframe>
+                    <iframe class="d-table-cell  p-1 bg-primary text-white" src="{{ url_for('body', sid=2)}}" width="1200" height="720"></iframe>
+                    {% endif %}
+                    {% if sid == 3 %}
+                    <iframe class="d-table-cell  p-1 bg-primary text-white" src="{{ url_for('head', sid=3)}}"  width="1200" height="320" ></iframe>
+                    <iframe name="hist_body" class="d-table-cell  p-1 bg-primary text-white" src="{{ url_for('body', sid=3, skils=skils)}}" width="1200" height="480"></iframe>
+                    {% endif %}
+                    {% if sid == 4 %}
+                    <iframe class="d-table-cell  p-1 bg-primary text-white" src="{{ url_for('head', sid=4)}}"  width="1200" height="200" ></iframe>
+                    <iframe class="d-table-cell  p-1 bg-primary text-white" src="{{ url_for('body', sid=4)}}" width="1200" height="600"></iframe>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<input name="category" type="hidden" value="0">
+</form>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html'%}
+
+{% block body %}
+    <h1 class="btn btn-warning btn-lg pb-3">開発実績</h1>
+
+    <form name="hist_form" class="m-5" action="/hist_search" method="POST">
+
+        <div class="mb-3">
+            <select class="form-select" aria-label="Default select example"  name="category">
+                <option value="0" selected>カテゴリ選択</option>
+                <option value="1">DB</option>
+                <option value="2">プログラミング/スクリプト言語</option>
+                <option value="3">ツール</option>
+                <option value="4">フレームワーク</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <select class="form-select" aria-label="Default select example"  name="os">
+                <option value="0" selected>OS選択</option>
+                <option value="1">Windows</option>
+                <option value="2">Unix</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="スキル"  name="skil">
+        </div>
+        <div class="mb-3">
+            <button type="button" class="btn btn-primary" onclick="hist_search()" >検索</button>
+        </div>
+    </form>
+
+{% endblock %}
